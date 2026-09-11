@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   AAVJO DESIGN SYSTEM — CSS Custom Properties
+   ============================================================ */
+
+:root {
+  --color-ivory: #F1ECE4;
+  --color-soft-white: #FCFAF7;
+  --color-marian-blue: #8A9FBE;
+  --color-charcoal: #292825;
+  --color-sand: #D8CEC0;
+  --color-light-blue: #DCE4EE;
+
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-manrope: 'Manrope', system-ui, sans-serif;
+}
+
+/* ============================================================
+   BASE RESETS
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background-color: var(--color-soft-white);
+  color: var(--color-charcoal);
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+
+@layer components {
+  /* Display headings — Cormorant Garamond */
+  .display-xl {
+    @apply font-cormorant text-5xl md:text-6xl lg:text-7xl font-normal leading-tight tracking-wide;
+  }
+  .display-lg {
+    @apply font-cormorant text-4xl md:text-5xl font-normal leading-tight tracking-wide;
+  }
+  .display-md {
+    @apply font-cormorant text-3xl md:text-4xl font-normal leading-snug;
+  }
+  .display-sm {
+    @apply font-cormorant text-2xl md:text-3xl font-normal leading-snug;
+  }
+
+  /* Section headings — Playfair Display */
+  .heading-lg {
+    @apply font-playfair text-2xl md:text-3xl font-normal;
+  }
+  .heading-md {
+    @apply font-playfair text-xl md:text-2xl font-normal;
+  }
+  .heading-sm {
+    @apply font-playfair text-lg md:text-xl font-normal;
+  }
+
+  /* UI labels — Inter */
+  .label-caps {
+    @apply font-inter text-xs tracking-[0.15em] uppercase;
+  }
+  .label-sm {
+    @apply font-inter text-xs tracking-wide;
+  }
+  .body-sm {
+    @apply font-inter text-sm leading-relaxed;
+  }
+  .body-md {
+    @apply font-inter text-base leading-relaxed;
+  }
+
+  /* Prices — Manrope */
+  .price-lg {
+    @apply font-manrope text-xl font-semibold;
+  }
+  .price-md {
+    @apply font-manrope text-base font-semibold;
+  }
+  .price-sm {
+    @apply font-manrope text-sm font-semibold;
+  }
+  .price-compare {
+    @apply font-manrope text-sm font-normal line-through text-charcoal/50;
+  }
+
+  /* ============================================================
+     BUTTON VARIANTS
+     ============================================================ */
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center
+           px-8 py-3
+           bg-charcoal text-soft-white
+           font-inter text-xs tracking-[0.15em] uppercase
+           border border-charcoal
+           transition-all duration-200
+           hover:bg-marian-blue hover:border-marian-blue
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center
+           px-8 py-3
+           bg-transparent text-charcoal
+           font-inter text-xs tracking-[0.15em] uppercase
+           border border-charcoal
+           transition-all duration-200
+           hover:bg-charcoal hover:text-soft-white
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost-white {
+    @apply inline-flex items-center justify-center
+           px-8 py-3
+           bg-transparent text-soft-white
+           font-inter text-xs tracking-[0.15em] uppercase
+           border border-soft-white
+           transition-all duration-200
+           hover:bg-soft-white hover:text-charcoal
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-blue {
+    @apply inline-flex items-center justify-center
+           px-8 py-3
+           bg-marian-blue text-soft-white
+           font-inter text-xs tracking-[0.15em] uppercase
+           border border-marian-blue
+           transition-all duration-200
+           hover:bg-charcoal hover:border-charcoal
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* ============================================================
+     BADGE VARIANTS
+     ============================================================ */
+
+  .badge-new {
+    @apply inline-block px-2 py-0.5
+           bg-marian-blue text-soft-white
+           font-inter text-[10px] tracking-widest uppercase;
+  }
+
+  .badge-sale {
+    @apply inline-block px-2 py-0.5
+           bg-charcoal text-soft-white
+           font-inter text-[10px] tracking-widest uppercase;
+  }
+
+  /* ============================================================
+     FORM ELEMENTS
+     ============================================================ */
+
+  .input-base {
+    @apply w-full px-4 py-3
+           bg-soft-white text-charcoal
+           font-inter text-sm
+           border border-sand
+           outline-none
+           transition-colors duration-200
+           placeholder:text-charcoal/40
+           focus:border-marian-blue;
+  }
+
+  /* ============================================================
+     SECTION CONTAINERS
+     ============================================================ */
+
+  .section-container {
+    @apply max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-py {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  .section-heading {
+    @apply label-caps text-charcoal/60 mb-2 text-center;
+  }
+
+  .section-title {
+    @apply display-sm text-charcoal text-center;
+  }
+}
+
+/* ============================================================
+   MARQUEE ANIMATION
+   ============================================================ */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   SCROLLBAR — hide for horizontal scroll sections
+   ============================================================ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   ARCH / JHAROKHA CLIP PATH
+   ============================================================ */
+
+.arch-clip {
+  clip-path: ellipse(50% 55% at 50% 50%);
+}
+
+.arch-top-clip {
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+}
